@@ -23,11 +23,15 @@ const Contact = () => {
     buttonText: "",
   });
   const getEnvValue = (...keys) => {
-    const matchedValue = keys
-      .map((key) => import.meta.env[key])
-      .find((value) => typeof value === "string" && value.trim());
+    for (const key of keys) {
+      const value = import.meta.env[key];
 
-    return matchedValue?.trim() ?? "";
+      if (typeof value === "string" && value.trim()) {
+        return value.trim();
+      }
+    }
+
+    return "";
   };
   const emailJsConfig = {
     serviceId: getEnvValue(
@@ -62,11 +66,11 @@ const Contact = () => {
       return error;
     }
 
-    if (error?.status || error?.text) {
+    if (error && (error.status || error.text)) {
       return [error.status, error.text].filter(Boolean).join(" ");
     }
 
-    if (error?.message) {
+    if (error && error.message) {
       return error.message;
     }
 
