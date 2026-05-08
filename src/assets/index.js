@@ -5,6 +5,7 @@ import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
 import linkedIn from "./linkedIn.png";
+import herobg from "./herobg.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import demo from "./demo.png";
@@ -50,6 +51,7 @@ export {
   web,
   github,
   linkedIn,
+  herobg,
   demo,
   selfEmployed,
   austinlegacycorpicon,
